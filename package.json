@@ -1,0 +1,19 @@
+{
+  "name": "flow_backend_server",
+  "version": "1.0.0",
+  "description": "code for backend server to get data from arduino and post to ADB",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/allisonchen23/fLOW_backend_server.git"
+  },
+  "author": "Allison Chen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/allisonchen23/fLOW_backend_server/issues"
+  },
+  "homepage": "https://github.com/allisonchen23/fLOW_backend_server#readme"
+}
