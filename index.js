@@ -7,9 +7,16 @@ const server = http.createServer((req,res) =>
     res.setHeader('Content-Type', 'text/plain');
     let parsed = url.parse(req.url, true);
     let q = parsed.query;
-    let msg = `At timestamp ${q.time}, the sensor with ID ${q.ID} recorded ${q.vol} liters of water in ${q.dur} seconds.`;
-    res.write(msg);
-    console.log(q);
+    if (q.time && q.ID && q.vol && q.dur)
+    {
+        let msg = `At timestamp ${q.time}, the sensor with ID ${q.ID} recorded ${q.vol} liters of water in ${q.dur} seconds.`;
+        res.write(msg);
+        console.log(q);
+    }
+    else
+    {
+        res.write("HI! <3");
+    }
     res.end();
     // if (req.url == '/now')
     // {
