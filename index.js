@@ -17,30 +17,28 @@ const server = http.createServer((req,res) =>
     }
     else
     {
-        console.log(date);
+        log_msg = date;
         if (!q.time)
         {
             res.write("invalid time\n");
-            console.log("invalid time ");
+            log_msg += " invalid time";
         }
         if (!q.vol)
         {
             res.write("invalid volume\n");
-            console.log("invalid volume ");
+            log_msg += " invalid volume";
         }
         if (!q.ID)
         {
             res.write("invalid ID\n");
-            console.log("invalid ID ");
-
+            log_msg += " invalid ID";
         }
         if (!q.dur)
         {
             res.write("invalid dur\n");
-            console.log("invalid dur ");
-
+            log_msg += " invalid duration";
         }
-        
+        console.log(log_msg);
     }
     res.end();
 })
