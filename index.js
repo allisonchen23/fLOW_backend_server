@@ -1,32 +1,31 @@
 const http = require('http');
 const url = require('url');
-hostname = 'localhost';
-const port = 3000;
+hostname = "0.0.0.0";
+const port = 3003;
 const server = http.createServer((req,res) =>
 {
     res.setHeader('Content-Type', 'text/plain');
     let parsed = url.parse(req.url, true);
     let q = parsed.query;
+    console.log(req.url);
+
     if (q.time && q.ID && q.vol && q.dur)
     {
-        let msg = `At timestamp ${q.time}, the sensor with ID ${q.ID} recorded ${q.vol} liters of water in ${q.dur} seconds.`;
+        let msg = `At timestamp ${q.time}, the sensor with ID ${q.ID} recorded ${q.vol} liters of water in ${q.dur} seconds.\n`;
         res.write(msg);
-        console.log(q);
     }
     else
     {
-        res.write("HI! <3");
+        if (!q.time)
+            res.write("invalid time\n");
+        if (!q.vol)
+            res.write("invalid volume\n");
+        if (!q.ID)
+            res.write("invalid ID\n");
+        if (!q.dur)
+            res.write("invalid dur\n");
     }
     res.end();
-    // if (req.url == '/now')
-    // {
-    //     res.writeHead(200, {'Content-Type': 'application/json'});
-    //     res.end(JSON.stringify({now: new Date() }));
-    // }
-    // else
-    // {
-    //     res.end("hello");
-    // }
 })
 
 
