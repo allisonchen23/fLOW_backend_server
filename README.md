@@ -14,3 +14,5 @@ At this point, the webserver runs on its own, but if you want to edit the Javasc
   $ sudo systemctl daemon-reload
   $ sudo systemctl reenable service_file_name.service
   ```
+To see console.log on the Oracle VM server, run the following command in terminal:
+`$ sudo journalctl -u service_file_name.service`
